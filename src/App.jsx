@@ -85,7 +85,7 @@ function App() {
         <Form.Item name="EndDate" label="EndDate">
           <DatePicker format="DD/MM/YYYY" />
         </Form.Item>
-        <Form.Item name="IncEndDay" valuePropName="checked" wrapperCol={{offset: 8,span: 16}}>
+        <Form.Item name="IncEndDay" valuePropName="checked" wrapperCol={{offset: 4,span: 24}}>
           <Checkbox>Include end date in calculation (1 day is added)</Checkbox>
         </Form.Item>
         <Form.Item name="Amount" label="Amount">
