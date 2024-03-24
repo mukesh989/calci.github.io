@@ -54,13 +54,23 @@ function App() {
 
     console.log(days)
 
-    const t = days/365;
-    const n = freqToNum(values.ComFreq)
-    const r = values.AnnualRate/100
-    const P = values.Amount
-    const final_amount = Math.pow((1+(r/n)),n*t) * P
+    // const t = days/365;
+    // const n = freqToNum(values.ComFreq)
+    // const r = values.AnnualRate/100
+    // const P = values.Amount
+    // const final_amount = Math.pow((1+(r/n)),n*t) * P
 
-    setResult(`No. of days: ${days} \nInterest Earned: ₹${Math.round((final_amount-P)*100)/100} \nFinal Amount: ₹${Math.round(final_amount*100)/100}`)
+    //setResult(`No. of days: ${days} \nInterest Earned: ₹${Math.round((final_amount-P)*100)/100} \nFinal Amount: ₹${Math.round(final_amount*100)/100}`)
+
+    const p = values.Amount;
+    const r = values.AnnualRate;
+    const t = days/365;
+
+    const interest = (p*r*t)/100;
+
+    const final_amount = Number(p) + interest;
+
+    setResult(`No. of days: ${days} \nInterest Earned: ₹${Math.round(interest*100)/100} \nFinal Amount: ₹${Math.round(final_amount*100)/100}`)    
   };
 
   const onReset = () => {
@@ -94,7 +104,7 @@ function App() {
         <Form.Item name="AnnualRate" label="Annual Rate">
           <Input type="number" prefix="" suffix="%" />
         </Form.Item>
-        <Form.Item name="ComFreq" label="Compound Freq">
+        {/* <Form.Item name="ComFreq" label="Compound Freq">
           <Select>
             <Select.Option value="daily">daily</Select.Option>
             <Select.Option value="weekly">weekly</Select.Option>
@@ -103,7 +113,7 @@ function App() {
             <Select.Option value="semi-annually">semi-annually</Select.Option>
             <Select.Option value="annually">annually</Select.Option>
           </Select>
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item {...tailLayout}>
         <Space>
           <Button type="primary" htmlType="submit">
